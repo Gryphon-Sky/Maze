@@ -5,6 +5,7 @@ def check(m):
     maze = m[1]
     
     start_found = False
+    exit_found = False
     for i, row in enumerate(maze):
         for j, cell in enumerate(row):
             if cell == '0' or cell == '1':
@@ -14,6 +15,9 @@ def check(m):
                 if cell == '0':
                     assert not start_found, name + ": more then one start!"
                     start_found = True
+                if cell == '1':
+                    exit_found = True
+    assert exit_found, name + ": no exit!"
 
 import router
 
